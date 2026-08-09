@@ -81,12 +81,12 @@ setInterval(() => {
     coin.style.left = coinX + "px"
     
     // Reset obstacle position when off screen
-    if (obstacleX < -50) {
-        obstacleX = 800
-        // Random height for obstacle
-        let randomHeight = Math.random() * 50 + 30
-        obstacle.style.height = randomHeight + "px"
-    }
+   if (obstacleX < -50) {
+    obstacleX = 800 + Math.random() * 300;
+
+    let randomHeight = Math.random() * 15 + 35;
+    obstacle.style.height = randomHeight + "px";
+}
     
     // Reset coin position when off screen
     if (coinX < -50) {
