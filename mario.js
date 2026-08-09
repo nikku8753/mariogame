@@ -42,36 +42,32 @@ document.addEventListener("keydown", (event) => {
 })
 
 // Jump function (like your box moving logic!)
-function jump() {
-    isJumping = true
-    jumpPower = 15
-    gravity = 1
-    
-    let jumpInterval = setInterval(() => {
-        if (!isJumping) {
-            clearInterval(jumpInterval)
-            return
-        }
-        
-        // Move up
-        let currentBottom = parseInt(mario.style.bottom || "0")
-        
-        if (jumpPower > 0) {
-            mario.style.bottom = (currentBottom + gravity) + "px"
-            jumpPower -= gravity
-        } else {
-            // Fall down
-            if (currentBottom > 0) {
-                mario.style.bottom = (currentBottom - gravity) + "px"
-            } else {
-                mario.style.bottom = "0px"
-                isJumping = false
-                clearInterval(jumpInterval)
-            }
-        }
-    }, 20)
-}
 
+    
+
+function jump() {
+    if (isJumping) return;
+
+    isJumping = true;
+
+    let jumpVelocity = 13;
+    const gravity = 0.6;
+
+    let jumpInterval = setInterval(() => {
+        let currentBottom = parseFloat(mario.style.bottom || "0");
+
+        currentBottom += jumpVelocity;
+        jumpVelocity -= gravity;
+
+        if (currentBottom <= 0 && jumpVelocity < 0) {
+            currentBottom = 0;
+            isJumping = false;
+            clearInterval(jumpInterval);
+        }
+
+        mario.style.bottom = currentBottom + "px";
+    }, 20);
+}
 // Game loop (like your interval logic!)
 setInterval(() => {
     if (isGameOver) return
@@ -88,7 +84,7 @@ setInterval(() => {
     if (obstacleX < -50) {
         obstacleX = 800
         // Random height for obstacle
-        let randomHeight = Math.random() * 50 + 40
+        let randomHeight = Math.random() * 50 + 30
         obstacle.style.height = randomHeight + "px"
     }
     
@@ -108,12 +104,19 @@ setInterval(() => {
     let marioLeft = marioX
     
     // Check collision with obstacle (Game Over)
-    if (marioRect.right > obstacleRect.left && 
+    /*if (marioRect.right > obstacleRect.left && 
         marioRect.left < obstacleRect.right && 
         marioRect.bottom > obstacleRect.top) {
         gameOver()
-    }
-    
+    }*/
+    if (
+    marioRect.right > obstacleRect.left &&
+    marioRect.left < obstacleRect.right &&
+    marioRect.bottom > obstacleRect.top &&
+    marioRect.top < obstacleRect.bottom
+) {
+    gameOver();
+}
     // Check collision with coin (Score!)
     if (marioRect.right > coinRect.left && 
         marioRect.left < coinRect.right && 
