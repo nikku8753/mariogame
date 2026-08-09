@@ -1,0 +1,285 @@
+/*body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #87CEEB, #E0F6FF);
+    overflow: hidden;
+}
+
+.game-container {
+    position: relative;
+    width: 800px;
+    height: 400px;
+    margin: 50px auto;
+    background: linear-gradient(to bottom, #87CEEB 70%, #8B4513 70%);
+    border: 3px solid black;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* Mario Character */
+/*.mario {
+    position: absolute;
+    bottom: 0;
+    left: 50px;
+    width: 40px;
+    height: 40px;
+    background-color: red;
+    border-radius: 5px;
+    transition: bottom 0.1s linear;
+}
+
+/* Mario's face (gross but functional) */
+/*.mario::before {
+    content: "●";
+    position: absolute;
+    left: 8px;
+    top: 5px;
+    font-size: 12px;
+}
+
+.mario::after {
+    content: "□";
+    position: absolute;
+    right: 5px;
+    top: 25px;
+    font-size: 12px;
+}
+
+/* Coin */
+/*.coin {
+    position: absolute;
+    bottom: 0;
+    right: 100px;
+    width: 25px;
+    height: 25px;
+    background-color: gold;
+    border-radius: 50%;
+    animation: spin 0.5s linear infinite;
+}
+
+/* Obstacle/Pipe */
+/*.obstacle {
+    position: absolute;
+    bottom: 0;
+    right: 300px;
+    width: 30px;
+    height: 60px;
+    background: linear-gradient(90deg, #228B22, #006400);
+    border-radius: 5px 5px 0 0;
+}
+
+/* Animations */
+/*@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.score-board {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #ff4444;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #cc0000;
+}
+
+/* Game over message */
+/*.game-over {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+    font-weight: bold;
+    color: red;
+    background: black;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 100;
+}*/
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #87CEEB, #E0F6FF);
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+h1 {
+    margin-top: 25px;
+    font-size: 32px;
+}
+
+.instructions {
+    margin: 15px;
+    font-size: 16px;
+}
+
+.game-container {
+    position: relative;
+    width: 800px;
+    height: 400px;
+    margin: 30px auto;
+
+    background: linear-gradient(
+        to bottom,
+        #87CEEB 70%,
+        #8B4513 70%
+    );
+
+    border: 3px solid black;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* Mario Character */
+
+.mario {
+    position: absolute;
+    bottom: 0;
+    left: 50px;
+    width: 40px;
+    height: 40px;
+
+    background-color: red;
+    border-radius: 5px;
+
+    transition: bottom 0.1s linear;
+}
+
+.mario::before {
+    content: "●";
+    position: absolute;
+    left: 8px;
+    top: 5px;
+    font-size: 12px;
+}
+
+.mario::after {
+    content: "□";
+    position: absolute;
+    right: 5px;
+    top: 25px;
+    font-size: 12px;
+}
+
+/* Coin */
+
+.coin {
+    position: absolute;
+    bottom: 0;
+    right: 100px;
+
+    width: 25px;
+    height: 25px;
+
+    background-color: gold;
+    border-radius: 50%;
+
+    animation: spin 0.5s linear infinite;
+}
+
+/* Obstacle */
+
+.obstacle {
+    position: absolute;
+    bottom: 0;
+    right: 300px;
+
+    width: 30px;
+    height: 60px;
+
+    background: linear-gradient(
+        90deg,
+        #228B22,
+        #006400
+    );
+
+    border-radius: 5px 5px 0 0;
+}
+
+/* Coin Animation */
+
+@keyframes spin {
+
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+
+}
+
+/* Score */
+
+.score-board {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 20px;
+}
+
+/* Buttons */
+
+.reset-button {
+    padding: 10px 20px;
+
+    font-size: 16px;
+
+    background-color: #ff4444;
+    color: white;
+
+    border: none;
+    border-radius: 5px;
+
+    cursor: pointer;
+}
+
+.reset-button:hover {
+    background-color: #cc0000;
+}
+
+/* Game Over */
+
+.game-over {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    font-size: 30px;
+    font-weight: bold;
+
+    color: red;
+    background: black;
+
+    padding: 25px;
+    border-radius: 10px;
+
+    z-index: 100;
+}
+
+.hidden {
+    display: none;
+}

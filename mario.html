@@ -1,0 +1,66 @@
+<!-- <!DOCTYPE html> -->
+<!-- <html lang="en"> -->
+<!-- <head> -->
+    <!-- <meta charset="UTF-8"> -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <!-- <title>Simple Mario Game</title> -->
+    <!-- <link rel="stylesheet" href="mario.css"> -->
+<!-- </head> -->
+<!-- <body> -->
+    <!-- /<h1>Simple Mario Game</h1> -->
+    <!-- <p>Use ARROW KEYS to move | Press SPACE to jump</p> -->
+    
+    <!-- <div class="game-container"> -->
+        <!-- <div class="mario"></div> -->
+        <!-- <div class="coin"></div> -->
+        <!-- <div class="obstacle"></div> -->
+    <!-- </div> -->
+    
+    <!-- <div class="score-board"> -->
+        <!-- Score: <span id="score">0</span> -->
+    <!-- </div> -->
+    
+    <!-- <button onclick="resetGame()">Reset Game</button> -->
+    
+    <!-- <script src="mario.js"></script> -->
+<!-- </body> -->
+<!-- </html> -->
+ ```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mario Adventure Game</title>
+    <link rel="stylesheet" href="mario.css">
+</head>
+<body>
+    <h1>🍄 Mario Adventure</h1>
+    <div class="instructions">
+        <p>⬅️ ➡️ Move &nbsp; | &nbsp; ⬆️ / Space Jump</p>
+    </div>
+    <div class="game-container">
+        <div class="mario"></div>
+        <div class="coin"></div>
+        <div class="obstacle"></div>
+        <div id="game-over" class="game-over hidden">
+            <h2>GAME OVER!</h2>
+            <p>Score: <span id="final-score">0</span></p>
+            <button onclick="resetGame()">Play Again</button>
+        </div>
+
+    </div>
+
+    <div class="score-board">
+        Score: <span id="score">0</span>
+    </div>
+
+    <button class="reset-button" onclick="resetGame()">
+        Reset Game
+    </button>
+
+    <script src="mario.js"></script>
+
+</body>
+</html>
+
