@@ -119,10 +119,14 @@ setInterval(() => {
 }
     // Check collision with coin (Score!)
     if (marioRect.right > coinRect.left && 
-        marioRect.left < coinRect.right && 
-        marioRect.bottom > coinRect.top) {
-        score++
-        scoreElement.textContent = score
+    marioRect.left < coinRect.right && 
+    marioRect.bottom > coinRect.top) {
+
+    score++
+    scoreElement.textContent = score
+
+    // Increase game difficulty as score grows
+    gameSpeed = Math.min(12, 5 + score * 0.5)
         coinX = 800 // Reset coin position
         coin.style.left = coinX + "px"
         
