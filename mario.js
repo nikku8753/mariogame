@@ -8,6 +8,8 @@ let gamePaused = false
 let pauseButton = document.getElementById("pause-btn")
 let highScore = Number(localStorage.getItem("marioHighScore")) || 0
 highScoreElement.textContent = highScore
+let countdownElement = document.getElementById("countdown")
+let gameStarted = false
 // Game variables (like your previous code!)
 let score = 0
 let isJumping = false
@@ -81,9 +83,28 @@ function jump() {
         mario.style.bottom = currentBottom + "px";
     }, 20);
 }
+let countdown = 3
+
+let countdownInterval = setInterval(() => {
+    countdown--
+
+    if (countdown > 0) {
+        countdownElement.textContent = countdown
+    } else {
+        countdownElement.textContent = "GO!"
+
+        setTimeout(() => {
+            countdownElement.style.display = "none"
+            gameStarted = true
+        }, 500)
+
+        clearInterval(countdownInterval)
+    }
+}, 1000)
+
 // Game loop (like your interval logic!)
 setInterval(() => {
-    if (isGameOver || gamePaused) return
+    if (isGameOver || gamePaused ||  !gameStarted) return
     
     // Move obstacle left
     obstacleX -= gameSpeed

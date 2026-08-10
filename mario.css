@@ -462,3 +462,17 @@ h1 {
 #pause-btn:hover {
     background: #444;
 }
+.countdown {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    font-size: 60px;
+    font-weight: bold;
+    color: white;
+
+    text-shadow: 3px 3px 0 #000;
+
+    z-index: 150;
+}
