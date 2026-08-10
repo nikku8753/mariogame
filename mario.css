@@ -152,7 +152,7 @@ h1 {
 
 /* Mario Character */
 
-.mario {
+/*.mario {
     position: absolute;
     bottom: 0;
     left: 50px;
@@ -180,6 +180,118 @@ h1 {
     top: 25px;
     font-size: 12px;
 }
+*/
+/* Mario Character */
+.mario {
+    position: absolute;
+    bottom: 0;
+    left: 50px;
+    width: 50px;
+    height: 70px;
+    background: #e52521;
+    border-radius: 12px 12px 6px 6px;
+    transition: bottom 0.1s linear;
+    z-index: 5;
+}
+
+/* Mario's face and eyes */
+.mario::before {
+    content: "";
+    position: absolute;
+    top: 17px;
+    left: 7px;
+    width: 36px;
+    height: 32px;
+    background: #f1c27d;
+    border-radius: 45% 45% 40% 40%;
+
+    /* Eyes only */
+    box-shadow:
+        10px 11px 0 -5px #222,
+        25px 11px 0 -5px #222;
+}
+
+/* Mario's red cap */
+.mario::after {
+    content: "M";
+    position: absolute;
+    top: 2px;
+    left: 3px;
+    width: 44px;
+    height: 18px;
+    background: #e52521;
+    border-radius: 20px 20px 5px 5px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 18px;
+    text-align: center;
+}
+
+/* Blue overalls */
+.mario {
+    box-shadow:
+        inset 0 -30px 0 #1565c0;
+}
+/*.mario {
+    position: absolute;
+    bottom: 0;
+    left: 50px;
+    width: 50px;
+    height: 70px;
+    background: #e52521;
+    border-radius: 12px 12px 6px 6px;
+    transition: bottom 0.1s linear;
+    z-index: 5;
+}
+*/
+/* Face */
+/*.mario::before {
+    content: "M";
+    position: absolute;
+    top: 4px;
+    left: 5px;
+    width: 40px;
+    height: 34px;
+    background: #f1c27d;
+    border-radius: 45% 45% 40% 40%;
+    color: white;
+    font-size: 11px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 16px;
+    border-top: 10px solid #e52521;
+    box-shadow:
+        10px 12px 0 -5px #222,
+        25px 12px 0 -5px #222,
+        17px 22px 0 -4px #3b2416;
+}*/
+
+/* Cap */
+/*.mario::after {
+    content: "M";
+    position: absolute;
+    top: 0;
+    left: 3px;
+    width: 44px;
+    height: 17px;
+    background: #e52521;
+    border-radius: 20px 20px 5px 5px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 17px;
+    text-align: center;
+}
+
+/* Body details */
+/*.mario {
+    box-shadow:
+        inset 0 -28px 0 #1565c0,
+        inset 0 -34px 0 #1565c0;
+}
+
+
 
 /* Coin */
 
