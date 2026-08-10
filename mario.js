@@ -4,7 +4,8 @@ let coin = document.querySelector(".coin")
 let obstacle = document.querySelector(".obstacle")
 let scoreElement = document.getElementById("score")
 let highScoreElement = document.getElementById("high-score")
-
+let gamePaused = false
+let pauseButton = document.getElementById("pause-btn")
 let highScore = Number(localStorage.getItem("marioHighScore")) || 0
 highScoreElement.textContent = highScore
 // Game variables (like your previous code!)
@@ -22,6 +23,15 @@ let coinX = 600
 // Game speed
 let gameSpeed = 5
 
+pauseButton.addEventListener("click", () => {
+    gamePaused = !gamePaused
+
+    if (gamePaused) {
+        pauseButton.textContent = "Resume"
+    } else {
+        pauseButton.textContent = "Pause"
+    }
+});
 // Keyboard controls (like your keydown logic!)
 document.addEventListener("keydown", (event) => {
     if (isGameOver) return
@@ -73,7 +83,7 @@ function jump() {
 }
 // Game loop (like your interval logic!)
 setInterval(() => {
-    if (isGameOver) return
+    if (isGameOver || gamePaused) return
     
     // Move obstacle left
     obstacleX -= gameSpeed
@@ -148,7 +158,7 @@ if (score > highScore) {
         }, 200)
     }
     
-}, 20)
+}, 20);
 
 // Game Over function
 function gameOver() {

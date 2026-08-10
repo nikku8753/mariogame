@@ -445,3 +445,20 @@ h1 {
         transform: translateY(-3px);
     }
 }
+#pause-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 8px 16px;
+    background: #222;
+    color: white;
+    border: 2px solid white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    z-index: 200;
+}
+
+#pause-btn:hover {
+    background: #444;
+}
