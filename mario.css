@@ -492,3 +492,17 @@ h1 {
 
     z-index: 50;
 }
+.game-title {
+    position: absolute;
+    top: 55px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    font-size: 28px;
+    font-weight: bold;
+
+    color: white;
+    text-shadow: 3px 3px 0 #000;
+
+    z-index: 50;
+}
