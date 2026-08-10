@@ -3,7 +3,10 @@ let mario = document.querySelector(".mario")
 let coin = document.querySelector(".coin")
 let obstacle = document.querySelector(".obstacle")
 let scoreElement = document.getElementById("score")
+let highScoreElement = document.getElementById("high-score")
 
+let highScore = Number(localStorage.getItem("marioHighScore")) || 0
+highScoreElement.textContent = highScore
 // Game variables (like your previous code!)
 let score = 0
 let isJumping = false
@@ -124,7 +127,11 @@ setInterval(() => {
 
     score++
     scoreElement.textContent = score
-
+if (score > highScore) {
+    highScore = score
+    highScoreElement.textContent = highScore
+    localStorage.setItem("marioHighScore", highScore)
+}
     // Increase game difficulty as score grows
     gameSpeed = Math.min(12, 5 + score * 0.5)
         coinX = 800 // Reset coin position
