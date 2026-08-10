@@ -395,3 +395,19 @@ h1 {
 .hidden {
     display: none;
 }
+.game-over button {
+    margin-top: 15px;
+    padding: 10px 22px;
+    background: red;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.game-over button:hover {
+    background: darkred;
+    transform: scale(1.05);
+}
