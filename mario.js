@@ -10,6 +10,7 @@ let highScore = Number(localStorage.getItem("marioHighScore")) || 0
 highScoreElement.textContent = highScore
 let countdownElement = document.getElementById("countdown")
 let gameStarted = false
+
 // Game variables (like your previous code!)
 let score = 0
 let isJumping = false
@@ -24,7 +25,8 @@ let coinX = 600
 
 // Game speed
 let gameSpeed = 5
-
+let speedElement = document.getElementById("speed-display")
+speedElement.textContent = "Speed: " + gameSpeed.toFixed(1)
 pauseButton.addEventListener("click", () => {
     gamePaused = !gamePaused
 
@@ -91,15 +93,15 @@ let countdownInterval = setInterval(() => {
     if (countdown > 0) {
         countdownElement.textContent = countdown
     } else {
-        countdownElement.textContent = "GO!"
+    countdownElement.textContent = "GO!"
 
-        setTimeout(() => {
-            countdownElement.style.display = "none"
-            gameStarted = true
-        }, 500)
+    clearInterval(countdownInterval)
 
-        clearInterval(countdownInterval)
-    }
+    setTimeout(() => {
+        countdownElement.style.display = "none"
+        gameStarted = true
+    }, 500)
+}
 }, 1000)
 
 // Game loop (like your interval logic!)
@@ -168,8 +170,13 @@ if (score > highScore) {
     localStorage.setItem("marioHighScore", highScore)
 }
     // Increase game difficulty as score grows
-    gameSpeed = Math.min(12, 5 + score * 0.5)
-        coinX = 800 // Reset coin position
+    // gameSpeed = Math.min(12, 5 + score * 0.5)
+        // coinX = 800 // Reset coin position
+        // Increase game difficulty as score grows
+gameSpeed = Math.min(12, 5 + score * 0.5)
+speedElement.textContent = "Speed: " + gameSpeed.toFixed(1)
+
+coinX = 800 // Reset coin position
         coin.style.left = coinX + "px"
         
         // Coin collection animation
