@@ -28,7 +28,6 @@
     transition: bottom 0.1s linear;
 }
 
-/* Mario's face (gross but functional) */
 /*.mario::before {
     content: "●";
     position: absolute;
@@ -45,7 +44,6 @@
     font-size: 12px;
 }
 
-/* Coin */
 /*.coin {
     position: absolute;
     bottom: 0;
@@ -68,7 +66,6 @@
     border-radius: 5px 5px 0 0;
 }
 
-/* Animations */
 /*@keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
@@ -94,7 +91,6 @@ button:hover {
     background-color: #cc0000;
 }
 
-/* Game over message */
 /*.game-over {
     position: absolute;
     top: 50%;
@@ -150,7 +146,7 @@ h1 {
     cursor: pointer;
 }
 
-/* Mario Character */
+
 
 /*.mario {
     position: absolute;
@@ -181,7 +177,7 @@ h1 {
     font-size: 12px;
 }
 */
-/* Mario Character */
+
 .mario {
     position: absolute;
     bottom: 0;
@@ -195,7 +191,6 @@ h1 {
     animation: marioRun 0.25s infinite alternate;
 }
 
-/* Mario's face and eyes */
 .mario::before {
     content: "";
     position: absolute;
@@ -212,7 +207,6 @@ h1 {
         25px 11px 0 -5px #222;
 }
 
-/* Mario's red cap */
 .mario::after {
     content: "M";
     position: absolute;
