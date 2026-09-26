@@ -1,4 +1,3 @@
-// Game elements
 let mario = document.querySelector(".mario")
 let coin = document.querySelector(".coin")
 let obstacle = document.querySelector(".obstacle")
@@ -10,20 +9,17 @@ let highScore = Number(localStorage.getItem("marioHighScore")) || 0
 highScoreElement.textContent = highScore
 let countdownElement = document.getElementById("countdown")
 let gameStarted = false
-
-// Game variables (like your previous code!)
 let score = 0
 let isJumping = false
 let isGameOver = false
 let gravity = 0
 let jumpPower = 0
 
-// Movement variables
 let marioX = 50
 let obstacleX = 700
 let coinX = 600
 
-// Game speed
+
 let gameSpeed = 5
 let speedElement = document.getElementById("speed-display")
 speedElement.textContent = "Speed: " + gameSpeed.toFixed(1)
@@ -36,11 +32,11 @@ pauseButton.addEventListener("click", () => {
         pauseButton.textContent = "Pause"
     }
 });
-// Keyboard controls (like your keydown logic!)
+
 document.addEventListener("keydown", (event) => {
     if (isGameOver) return
     
-    // Jump with Space or ArrowUp
+
     if ((event.key === " " || event.key === "Space" || event.key === "ArrowUp") && !isJumping) {
         jump()
     }
@@ -57,8 +53,6 @@ document.addEventListener("keydown", (event) => {
         mario.style.left = marioX + "px"
     }
 })
-
-// Jump function (like your box moving logic!)
 
     
 
@@ -104,36 +98,25 @@ let countdownInterval = setInterval(() => {
 }
 }, 1000)
 
-// Game loop (like your interval logic!)
+
 setInterval(() => {
     if (isGameOver || gamePaused ||  !gameStarted) return
-    
-    // Move obstacle left
     obstacleX -= gameSpeed
     obstacle.style.left = obstacleX + "px"
-    
-    // Move coin left
     coinX -= gameSpeed
     coin.style.left = coinX + "px"
-    
-    // Reset obstacle position when off screen
   if (obstacleX < -50) {
     obstacleX = 800
-
-    // Random obstacle height
     let randomHeight = Math.floor(Math.random() * 30) + 40
     obstacle.style.height = randomHeight + "px"
 
-    // Random obstacle width
     let randomWidth = Math.floor(Math.random() * 15) + 30
     obstacle.style.width = randomWidth + "px"
 } 
-    // Reset coin position when off screen
     if (coinX < -50) {
         coinX = 800
     }
     
-    // COLLISION DETECTION (like your if-else logic!)
     let marioRect = mario.getBoundingClientRect()
     let obstacleRect = obstacle.getBoundingClientRect()
     let coinRect = coin.getBoundingClientRect()
@@ -157,7 +140,7 @@ setInterval(() => {
 ) {
     gameOver();
 }
-    // Check collision with coin (Score!)
+    // Check collision with coin 
     if (marioRect.right > coinRect.left && 
     marioRect.left < coinRect.right && 
     marioRect.bottom > coinRect.top) {
@@ -187,8 +170,6 @@ coinX = 800 // Reset coin position
     }
     
 }, 20);
-
-// Game Over function
 function gameOver() {
     isGameOver = true
     let gameOverMsg = document.createElement("div")
@@ -196,19 +177,13 @@ function gameOver() {
     gameOverMsg.innerHTML = "GAME OVER!<br>Score: " + score
     document.querySelector(".game-container").appendChild(gameOverMsg)
 }
-
-// Reset game (like your box reset logic!)
 function resetGame() {
     location.reload() // Simple reset
 }
-
-// Initialize positions
 mario.style.left = marioX + "px"
 mario.style.bottom = "0px"
 obstacle.style.left = obstacleX + "px"
 obstacle.style.height = "60px"
 coin.style.left = coinX + "px"
 coin.style.bottom = "0px"
-
-// Display instructions
 console.log("Game Started! Use Arrow Keys to move Mario")
